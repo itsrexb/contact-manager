@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/contacts', 'ContactController@index')->name('contacts');
+Route::get('/contacts', 'ContactController@index')->name('contacts')->middleware('auth');

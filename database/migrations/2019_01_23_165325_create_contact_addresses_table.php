@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactsAddressTable extends Migration
+class CreateContactAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateContactsAddressTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts_address', function (Blueprint $table) {
+        Schema::create('contact_addresses', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('contact_id');
@@ -38,6 +38,6 @@ class CreateContactsAddressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts_address');
+        Schema::dropIfExists('contact_addresses');
     }
 }

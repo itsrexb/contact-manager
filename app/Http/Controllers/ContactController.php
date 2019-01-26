@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('contact/index');
     }
 
     /**
@@ -81,5 +81,11 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         //
+    }
+
+
+    public function test()
+    {
+        return [123];
     }
 }

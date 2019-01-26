@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/contact.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +19,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    
+    <script>
+        window.APP_URL = "{{ url('/') }}";
+        @auth
+            window.Laravel = {
+                csrfToken: "{{ csrf_token() }}",
+                apiToken: "{{ auth()->user()->api_token }}",
+            }
+        @endauth
+    </script>
+   
 </head>
 <body>
     <div id="app">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlockedListTable extends Migration
+class CreateContactRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,20 @@ class CreateBlockedListTable extends Migration
      */
     public function up()
     {
-        Schema::create('blocked_list', function (Blueprint $table) {
+        Schema::create('contact_requests', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->enum('type', ['email', 'mobile', 'tel', 'user']);
+            $table->unsignedInteger('friend_user_id');
+            $table->foreign('friend_user_id')->references('id')->on('users');
 
-            $table->string('content');
+            $table->timestamp('accepted_at')->nullable();
 
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
@@ -34,6 +37,6 @@ class CreateBlockedListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blocked_list');
+        Schema::dropIfExists('contact_requests');
     }
 }

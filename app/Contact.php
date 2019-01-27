@@ -27,6 +27,16 @@ class Contact extends Model
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     /**
+     * Setup BelongsTo relations to App\User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class, 'user_id');
+    }
+
+    /**
      * Setup HasMany relations to App\ContactInfo
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -47,4 +57,5 @@ class Contact extends Model
         $contactInfo = new ContactInfo();
         return $contactInfo->where(['type' => 'address', 'id' => $contactId]);
     }
+
 }

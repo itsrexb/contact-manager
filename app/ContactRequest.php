@@ -31,7 +31,7 @@ class ContactRequest extends Model
      */
     public function user()
     {
-    	$this->belongsTo(User::class);
+    	return $this->belongsTo(\App\User::class, 'user_id');
     }
 
     /**
@@ -41,6 +41,6 @@ class ContactRequest extends Model
      */
     public function friend()
     {
-    	$this->belongsTo(User::class, 'friend_user_id');
+    	return $this->belongsTo(\App\User::class, 'friend_user_id');
     }
 }

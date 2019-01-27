@@ -16,5 +16,15 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'auth:api','prefix' => 'contacts', 'namespace' => 'Api'], function(){
 	Route::get('list', 'ContactController@list');
+	Route::get('get/{id}', 'ContactController@show');
+	Route::get('request', 'ContactController@contactRequest');
+	Route::get('block/{id}', 'ContactController@blockUser');
+	Route::get('accept/{id}', 'ContactController@acceptUser');
+	Route::get('blocked-list', 'ContactController@getBlockedList');
+	Route::get('explore', 'ContactController@getAllUsers');
+
+	Route::delete('delete/{id}', 'ContactController@destroy');
+
 	Route::post('new', 'ContactController@storeNewContact');
+	Route::post('blockedlist', 'ContactController@blockedlist');
 });

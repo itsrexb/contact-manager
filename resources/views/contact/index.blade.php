@@ -28,6 +28,9 @@
                           <a class="btn btn-link" data-toggle="collapse" href="#request" role="button" aria-expanded="false" aria-controls="blocked-list">
                             Request
                           </a>
+                          <a class="btn btn-link" data-toggle="collapse" href="#explore" role="button" aria-expanded="false" aria-controls="explore">
+                            Explore
+                          </a>
                         </p>
 
                         <div class="contact-content collapse show" id="list">
@@ -50,7 +53,11 @@
                             @include('contact.partials._request')
                           </div>
                         </div>
-
+                        <div class="contact-content collapse" id="explore">
+                          <div class="card card-body">
+                            @include('contact.partials._explore')
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>

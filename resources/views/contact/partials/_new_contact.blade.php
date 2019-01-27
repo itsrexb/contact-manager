@@ -1,6 +1,6 @@
-<h5>New Contact</h5>
-
 <form id="new-contact-form" method="post" action="">
+	<h5>New Contact</h5>
+	<input type="hidden" name="id">
 	@csrf
 	<div class="form-group">
 		<label for="first-name">First Name</label>
@@ -29,6 +29,11 @@
 	</div>
 	<div class="form-group">
 		<button class="new-info btn btn-success btn-sm float-right">+</button>
+	</div>
+	<div class="clearfix"></div>
+	<div class="form-group">
+		<label for="notes">Notes</label>
+		<textarea id="notes" name="notes" class="form-control"></textarea>
 	</div>
 	<div class="form-group">
 		<button class="btn btn-primary">SAVE</button>

@@ -24,6 +24,8 @@ class CreateBlockedListsTable extends Migration
             $table->string('content');
 
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

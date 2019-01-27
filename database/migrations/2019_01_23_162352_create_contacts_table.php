@@ -22,7 +22,12 @@ class CreateContactsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
 
+            $table->mediumText('notes')->nullable();
+
             $table->timestamps();
+
+            $table->softDeletes();
+            
         });
     }
 
@@ -33,6 +38,8 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('contacts');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

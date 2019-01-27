@@ -19,13 +19,13 @@ class CreateContactInfosTable extends Migration
             $table->unsignedInteger('contact_id');
             $table->foreign('contact_id')->references('id')->on('contacts');
 
-            $table->enum('type', ['email', 'mobile', 'tel', 'fax']);
+            $table->string('type')->comment = "email,mobile,tel,fax,address";
 
             $table->string('content');
 
-            $table->mediumText('notes');
-
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
